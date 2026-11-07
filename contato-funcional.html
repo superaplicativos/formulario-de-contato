@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato</title>
+</head>
+<body>
+
+  <h1>Fale Conosco</h1>
+  <p>
+    Preencha o formulário abaixo e sua mensagem será enviada
+    direto para o e-mail <strong>superaplicativos2022@gmail.com</strong>.
+  </p>
+
+  <hr>
+
+  <!--
+    ================================================================
+    COMO ESTE FORMULÁRIO ENVIA E-MAIL (leia antes de testar)
+    ================================================================
+
+    1) HTML puro não envia e-mail sozinho. O próprio slide da aula
+       avisa: "sem um servidor para receber os dados, o envio não
+       processa nada. O recebimento é tarefa do back-end."
+
+    2) Solução sem back-end: o serviço gratuito FormSubmit
+       (formsubmit.co). A própria aula lista "formulários e widgets
+       de terceiros" como uso comum. Ele recebe o POST do nosso
+       formulário (action + method, vistos na aula) e encaminha
+       tudo para o e-mail escrito no action.
+
+    3) ATIVAÇÃO (só uma vez): ao enviar o primeiro teste, chega um
+       e-mail de confirmação em superaplicativos2022@gmail.com.
+       Abra esse e-mail e clique em "Activate Form". Depois disso,
+       toda mensagem do formulário cai na caixa de entrada desse
+       Gmail.
+
+    4) Os campos <input type="hidden"> no fim do formulário são
+       configurações do FormSubmit: assunto do e-mail, formato de
+       tabela, desligar o captcha e resposta automática ao visitante.
+
+    5) ALTERNATIVA sem serviço externo: troque o action do form por
+       action="mailto:superaplicativos2022@gmail.com"
+       e acrescente enctype="text/plain". Assim o formulário abre o
+       programa de e-mail do visitante com a mensagem pronta, mas o
+       visitante precisa clicar em enviar no próprio programa. Por
+       isso a opção do FormSubmit é a recomendada.
+    ================================================================
+  -->
+
+  <form action="https://formsubmit.co/superaplicativos2022@gmail.com" method="post">
+
+    <p>
+      <label for="nome">Nome:</label><br>
+      <input type="text" id="nome" name="nome" required maxlength="50" placeholder="Seu nome completo">
+    </p>
+
+    <p>
+      <label for="email">E-mail:</label><br>
+      <input type="email" id="email" name="email" required placeholder="seuemail@exemplo.com">
+    </p>
+
+    <p>
+      <label for="telefone">Telefone:</label><br>
+      <input type="tel" id="telefone" name="telefone" pattern="[0-9]{10,11}" placeholder="Apenas números, com DDD">
+    </p>
+
+    <p>
+      <label for="assunto">Assunto:</label><br>
+      <select id="assunto" name="assunto">
+        <option value="Duvida">Dúvida</option>
+        <option value="Sugestao">Sugestão</option>
+        <option value="Orcamento">Orçamento</option>
+        <option value="Outro">Outro</option>
+      </select>
+    </p>
+
+    <p>
+      <label for="mensagem">Mensagem:</label><br>
+      <textarea id="mensagem" name="mensagem" rows="5" cols="40" required maxlength="500" placeholder="Escreva sua mensagem aqui"></textarea>
+    </p>
+
+    <!-- Campos ocultos: configuração do serviço FormSubmit -->
+    <input type="hidden" name="_subject" value="Nova mensagem do site">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_autoresponse" value="Recebemos sua mensagem! Responderemos em breve.">
+
+    <button type="submit">Enviar</button>
+    <button type="reset">Limpar</button>
+
+  </form>
+
+  <hr>
+  <p><small>Formulário de contato em HTML puro. Aula 4: Formulários, link, script e iframes.</small></p>
+
+</body>
+</html>
